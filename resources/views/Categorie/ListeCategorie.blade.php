@@ -17,6 +17,16 @@
             <div class="col-md-12">
                <div class="row"> 
                     <div class="col"> <h1>Liste des catégories</h1></div> 
+                    @if(session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+                 @endif 
+                 @if(session('statue'))
+    <div class="alert alert-success">
+        {{ session('statue') }}
+    </div>
+                 @endif   
                     <div class="col"><i class="fas fa-plus"></i><a href="">Ajouter une nouvelle catégorie</a></div>
                </div>
                 <br>
@@ -31,8 +41,8 @@
                         <tr>
                             <td>{{ $category->nomCat}}</td>
                             <td>
-                                <a href="" ><i class="fas fa-edit me-5"></i></a> 
-                                <a href="" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette catégorie ?')"><i class="fas fa-trash"></i></a>
+                                <a href="/ModifierCategorie/{{$category->id}}" ><i class="fas fa-edit me-5"></i></a> 
+                                <a href="/SupprimerCategorie/{{$category->id}}"><i class="fas fa-trash"></i></a>
                             </td>
                         </tr>
                         @endforeach

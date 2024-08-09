@@ -30,17 +30,18 @@
                 <h2 class="text-center mb-4">Modifier Categorie</h2>
                 <hr>
 
-                <form action="{{ route('AddCategorie') }}" method="POST">
+                <form action="{{ route('UpdateCategorie') }}" method="POST">
                     @csrf
                     <div class="mb-3">
                         <label for="name" class="form-label">Nom Categorie</label>
-                        <input type="text" class="form-control" id="name" name="categorie" placeholder="Entrer le nom de la categorie">
+                        <input value="{{$categories->nomCat}}" type="text" class="form-control" id="name" name="categorie" placeholder="Entrer le nom de la categorie">
+                        <input value="{{$categories->id}}" type="text" class="form-control" id="id" hidden name="id" placeholder="Entrer le nom de la categorie">
                     </div>
                     <div class="row">
                         <div class="col-md-7"></div>
                         <div class="col-md-5">
                             <button type="submit" class="btn btn-lg rounded-pill me-1" style="background-color: rgb(12, 165, 91)">Submit</button>
-                            <button type="submit" class="btn btn-danger btn-lg rounded-pill ms-1" style="color: rgb(10, 9, 9)">Reset</button>
+                            <button type="reset" class="btn btn-danger btn-lg rounded-pill ms-1" style="color: rgb(10, 9, 9)">Reset</button>
                         </div>
                         
                     </div>

@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\CaracteristiqueController;
 
+use App\Http\Controllers\usercontroller;
+use App\Http\Controllers\produitcontroller;
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,6 +26,12 @@ Route::get('/', function () {
 Route::get('/Categorie',[CategorieController::class, 'FormCategorie'])->name('Categorie');
 Route::post('/AddCategorie',[CategorieController::class, 'AddCategorie'])->name('AddCategorie');
 Route::get('/ListCategorie',[CategorieController::class, 'Liste'])->name('ListCategorie');
+Route::get('/SupprimerCategorie/{id}',[CategorieController::class, 'Supprimer'])->name('SupprimerCategorie');
+Route::get('/ModifierCategorie/{id}',[CategorieController::class, 'Modifier'])->name('ModifierCategorie');
+Route::post('/UpdateCategorie',[CategorieController::class, 'Update'])->name('UpdateCategorie');
+
+
+
 
 
 // Appel des routes pour la caracteristique
@@ -35,12 +44,9 @@ Route::post('/AddCaracteristique',[CaracteristiqueController::class, 'AddCaracte
 
 
 
-<?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\usercontroller;
-use App\Http\Controllers\produitcontroller;
-use App\Models\User;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -54,7 +60,7 @@ use App\Models\User;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('header');
 });
 
 Route::get('/login', [usercontroller::class, 'login'])->name('login');
@@ -76,6 +82,9 @@ Route::get('/guest', function () {
 })->name('guestmain');
 
 Route::get('/formproduct', [produitcontroller::class, 'formproduct'])->name('formproduct');
+Route::post('/AddProduit',[ProduitController::class, 'AddProduit'])->name('AddProduit');
+Route::get('/maincontain', [produitcontroller::class, 'ListeP'])->name('ListeP');
+Route::get('/searchprodupd/{id}', [produitcontroller::class, 'searchprodupd'])->name('searchprodupd');
 
 
 
